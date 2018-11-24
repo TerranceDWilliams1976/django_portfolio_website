@@ -8,7 +8,7 @@
   <meta name="author" content="">
 
 
-  <title>Terrance Williams</title>
+  <title>{{ blog.title }}</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -27,51 +27,33 @@
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link" href="http://twitter.com/nickchuckwalter">Twitter</a>
           <a class="nav-item nav-link" href="{% static 'my-resume.pdf' %}">Resume</a>
-          <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+          <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
         </div>
       </div>
     </nav>
   </header>
 
   <main role="main">
-
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1 class="jumbotron-heading">Hi, I'm Terrance.</h1>
-        <p class="lead text-muted">Hey, my name is Terrance Williams and I love to build Django websites!</p>
-        <p>
-          <a href="mailto:tewilliams76@icloud.com" class="btn btn-primary my-2">Email Me</a>
-        </p>
-        <img src="{% static 'my-pic.jpeg' %}" height="300" />
-      </div>
-    </section>
-
-    <div class="album py-5 bg-light">
-      <div class="container">
-
-        <div class="row">
-
-          {% for job in jobs.all %}
-          <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <img class="card-img-top" src="{{ job.image.url }}" />
-              <div class="card-body">
-                <p class="card-text">{{ job.summary }}</p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
+    <div class="container">
 
 
-        </div>
-      </div>
-    </div>
+
+
+    <h1 class="text-center pt-3">{{ blog.title }}</h1>
+    <p class="text-center">{{ blog.pub_date }}</p>
+    <img class="img-fluid" src="{{ blog.image.url }}"  />
+    <br />
+    <br />
+    <p>{{ blog.body }}</p>
+
+
+  </div>
 
   </main>
 
   <footer class="text-muted">
     <div class="container text-center">
-      <p>© Terrance Williams {% now "Y" %}</p>
+      <p>© Nick Walter {% now "Y" %}</p>
       </div>
   </footer>
 
